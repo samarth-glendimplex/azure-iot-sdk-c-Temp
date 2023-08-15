@@ -1852,7 +1852,7 @@ AGENT_DATA_TYPES_RESULT AgentDataTypes_ToString(STRING_HANDLE destination, const
                         }
 
 #ifdef _MSC_VER
-#pragma warning(suppress: 6386) /* The test Create_AGENT_DATA_TYPE_from_charz_With_2_Slashes_Succeeds verifies that Code Analysis is wrong here */
+ warning(suppress: 6386) /* The test Create_AGENT_DATA_TYPE_from_charz_With_2_Slashes_Succeeds verifies that Code Analysis is wrong here */
 #endif
                         tempBuffer[w] = '"';
                         /*zero terminating it*/
@@ -3500,9 +3500,9 @@ AGENT_DATA_TYPES_RESULT CreateAgentDataType_From_String(const char* source, AGEN
                 if (strcmp(source, "\"NaN\"") == 0)
                 {
                     agentData->type = EDM_DOUBLE_TYPE;
-#pragma warning(disable:26451) // warning C26451: overflow in constant arithmetic
+//#pragma warning(disable:26451) // warning C26451: overflow in constant arithmetic
                     agentData->value.edmDouble.value = NAN;
-#pragma warning (default:26451)
+//#pragma warning (default:26451)
                     result = AGENT_DATA_TYPES_OK;
                 }
                 else if (strcmp(source, "\"INF\"") == 0)
